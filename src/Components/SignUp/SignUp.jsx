@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { appSelectors } from '../../store';
@@ -10,6 +10,7 @@ import classes from './SignUp.module.scss';
 
 export default function SignUp() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [password, setPassword] = useState(null);
 
@@ -40,6 +41,7 @@ export default function SignUp() {
     if (token) {
       reset();
     }
+    navigate('/', { replace: true });
   };
 
 
