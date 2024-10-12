@@ -6,7 +6,8 @@ let articleObj = null;
 export const fetchArticles = createAsyncThunk('articles/fetchArticles', async (page = 1) => {
   const token = localStorage.getItem('token');
 
-  const response = await fetch(`https://blog.kata.academy/api/articles?limit=5&offset=${(page - 1) * 5}`, {
+  const response = await fetch(`https://blog-platform.kata.academy/api/articles?limit=5&offset=${(page - 1) * 5}`, {
+    mode: 'no-cors',
     headers: {
       Authorization: `Token ${token}`,
     },
@@ -18,7 +19,7 @@ export const fetchArticles = createAsyncThunk('articles/fetchArticles', async (p
 
 export const fetchSetLike = createAsyncThunk('articles/fetchSetLike', async (slug, { rejectWithValue }) => {
   const token = localStorage.getItem('token');
-  const url = `https://blog.kata.academy/api/articles/${slug}/favorite `;
+  const url = `https://blog-platform.kata.academy/api/articles/${slug}/favorite `;
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -40,7 +41,7 @@ export const fetchSetLike = createAsyncThunk('articles/fetchSetLike', async (slu
 });
 
 export const fetchDeleteLike = createAsyncThunk('articles/fetchDeleteLike', async (slug, { rejectWithValue }) => {
-  const url = `https://blog.kata.academy/api/articles/${slug}/favorite `;
+  const url = `https://blog-platform.kata.academy/api/articles/${slug}/favorite `;
   const token = localStorage.getItem('token');
 
   try {
@@ -88,7 +89,7 @@ export const fetchArticle = createAsyncThunk('articles/fetchArticle', async (slu
 
 export const fetchCreateArticle = createAsyncThunk('articles/fetchCreateArticle', async (data, { rejectWithValue }) => {
   try {
-    const url = `https://blog.kata.academy/api/articles`;
+    const url = `https://blog-platform.kata.academy/api/articles`;
 
     const token = localStorage.getItem('token');
 
@@ -116,7 +117,7 @@ export const fetchEditArticle = createAsyncThunk(
   'articles/fetchEditArticle',
   async ([slug, data], { rejectWithValue }) => {
     try {
-      const url = `https://blog.kata.academy/api/articles/${slug}`;
+      const url = `https://blog-platform.kata.academy/api/articles/${slug}`;
 
       const token = localStorage.getItem('token');
 

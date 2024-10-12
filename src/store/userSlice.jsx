@@ -4,10 +4,11 @@ let userObj = null;
 
 export const fetchUserAuth = createAsyncThunk('user/fetchUserAuth', async (data, { rejectWithValue }) => {
   try {
-    const url = `https://blog.kata.academy/api/users`;
+    const url = `https://blog-platform.kata.academy/api/users`;
 
     const response = await fetch(url, {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -30,9 +31,10 @@ export const fetchUserAuth = createAsyncThunk('user/fetchUserAuth', async (data,
 
 export const fetchUserLogin = createAsyncThunk('user/fetchUserLogin', async (data, { rejectWithValue }) => {
   try {
-    const url = `https://blog.kata.academy/api/users/login`;
+    const url = `https://blog-platform.kata.academy/api/users/login`;
 
     const response = await fetch(url, {
+      mode: 'no-cors',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,12 +61,13 @@ export const fetchUserLogin = createAsyncThunk('user/fetchUserLogin', async (dat
 
 export const fetchUserEditProfile = createAsyncThunk('user/fetchUserEditProfile', async (data, { rejectWithValue }) => {
   try {
-    const url = `https://blog.kata.academy/api/user`;
+    const url = `https://blog-platform.kata.academy/api/user`;
 
     const token = localStorage.getItem('token');
 
     const response = await fetch(url, {
       method: 'PUT',
+      mode: 'no-cors',
       headers: {
         Authorization: `Token ${token}`,
         'Content-Type': 'application/json',

@@ -60,7 +60,7 @@ export default function Article() {
   ));
 
   const confirm = () => {
-    fetch(`https://blog.kata.academy/api/articles/${slug}`, {
+    fetch(`https://blog-platform.kata.academy/api/articles/${slug}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Token ${token}`,

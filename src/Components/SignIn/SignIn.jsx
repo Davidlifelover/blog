@@ -48,7 +48,6 @@ export default function SignIn() {
     if (token) {
       reset();
     }
-    navigate('/', { replace: true });
   };
 
   return (
