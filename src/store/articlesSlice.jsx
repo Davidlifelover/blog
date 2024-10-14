@@ -68,7 +68,7 @@ export const fetchArticle = createAsyncThunk('articles/fetchArticle', async (slu
   const token = localStorage.getItem('token');
 
   try {
-    const url = `https://blog.kata.academy/api/articles/${slug}`;
+    const url = `https://blog-platform.kata.academy/api/articles/${slug}`;
 
     const response = await fetch(url, {
       headers: {
